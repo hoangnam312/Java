@@ -30,8 +30,9 @@ class Main {
         result[arr.length - 1] = -1;
 
         for (int i = arr.length - 1; i > 0; i--) {
-            System.out.println(" ------------------ ");
-            System.out.println("i: " + i + "; arr[i]: " + arr[i] + "; result[i]: " + result[i]);
+            // System.out.println(" ------------------ ");
+            // System.out.println("i: " + i + "; arr[i]: " + arr[i] + "; result[i]: " +
+            //         result[i]);
             result[i - 1] = (arr[i] > result[i]) ? arr[i] : result[i];
         }
 
