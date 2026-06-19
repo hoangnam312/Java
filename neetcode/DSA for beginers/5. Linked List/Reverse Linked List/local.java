@@ -17,6 +17,7 @@
 class Main {
     public static void main(String[] args) {
         // Tạo linked list: 1 -> 2 -> 3 -> 4 -> 5
+        // ListNode head = null;
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
@@ -34,19 +35,27 @@ class Main {
 
     public static ListNode reverseList(ListNode head) {
         ListNode prev = null;
-        ListNode next = head;
-        int i = 0;
-        while (next != null && i < 10) {
-            System.out.println("------------- " + i);
-            printList(head);
-            // prev = next;
-            next = next.next;
-            prev = head;
-            head.next = prev;
-            i = i + 1;
+        ListNode next = (head != null ? head.next : null);
+        ListNode current = head;
+        
+        while (current != null) {
+            System.out.println("------------- ");
+            System.out.println("current: " + (current != null ? current.val : "null"));
+            System.out.println("next: " + (next != null ? next.val : "null"));
+            System.out.println("prev: " + (prev != null ? prev.val : "null"));
+            
+            current.next = prev;
+
+            // update for next loop
+            prev = current;
+            current = next;
+            next = (next != null ? next.next : null);
+
+            printList(prev);
+            printList(current);
         }
 
-        return head;
+        return prev;
     }
 
     public static void printList(ListNode head) {
