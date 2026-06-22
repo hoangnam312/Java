@@ -175,18 +175,14 @@ class MyLinkedList {
             return;
 
         if (index == 0) {
-            Node value = head;
-            value.next = head.next.next;
-            value.next.prev = value;
-            head = value;
+            head = head.next;
+            head.prev = null;
             size -= 1;
             return;
         }
         if (index == size - 1) {
-            Node value = tail;
-            value.prev = tail.prev.prev;
-            value.prev.next = value;
-            tail = value;
+            tail = tail.prev;
+            tail.next = null;
             size -= 1;
             return;
         }
