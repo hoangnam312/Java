@@ -28,18 +28,17 @@ class Main {
     }
 
     public static ListNode swap(ListNode prev, ListNode current) {
+        if (current == null) return prev;
+
         ListNode next = current.next;
         current.next = prev;
-        if (next.next == null) {
-            return current;
-        }
+        
 
         return swap(current, next);
     }
 
     public static ListNode reverseList(ListNode head) {
-        ListNode reverseHead = swap(head, head.next);
-        return reverseHead;
+        return swap(null, head);
     }
 
     public static void printList(ListNode head) {
